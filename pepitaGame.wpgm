@@ -9,10 +9,12 @@ program PepitaGame {
 	game.height(10)
 	game.width(10)
 	game.boardGround("fondo2.jpg")
-
-	tutorial1.iniciar()
-
+	game.schedule(3000, { game.say(pepita, "¡Hola!") })
+	keyboard.enter().onPressDo{game.say(pepita, pepita.energia().toString())}
+	tutorial2.iniciar()
+	
 	game.showAttributes(pepita) //Debug
-
+	
 	game.start()
+
 }

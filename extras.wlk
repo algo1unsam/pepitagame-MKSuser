@@ -15,9 +15,17 @@ object nido {
 
 
 object silvestre {
+	var property position = game.origin() //Con esto el pj arranca desde 0,0
 
 	method image() = "silvestre.png"
 
-	method position() = game.origin()
-	
+	//Generamos el cambio de mov en silvestre
+	method position() = game.at(self.restriccion(),0)
+
+	//Como nos pide que restrinjamos el mov, le ponemos que el minimo es 3.
+	method restriccion(){
+		return pepita.position().x().max(3)
+
+	}
+
 }
