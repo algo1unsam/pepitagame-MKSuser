@@ -23,8 +23,8 @@ object tutorial2 {
 		game.addVisual(silvestre)
 		game.addVisual(pepita)
 		config.configurarTeclas()
-		game.stop()
-		//config.configurarGravedad()  
+		game.onTick(800, "gravedad", { pepita.gravedad() })
+
 	}
 
 }
@@ -39,7 +39,7 @@ object tutorial3 {
 		game.addVisual(pepita)
 		config.configurarTeclas()
 		config.configurarColisiones()
-	//	config.configurarGravedad()
+		game.onTick(800, "gravedad", { pepita.gravedad() })
 	}
 
 }
@@ -48,25 +48,23 @@ object config {
 
 	method configurarTeclas() {
 
-		
+			// Teclas para manipular a pepita sin que está ataca a character
 			keyboard.left().onPressDo({ pepita.irA(pepita.position().left(1)) })
-		
-		
 			keyboard.right().onPressDo({ pepita.irA(pepita.position().right(1))})
-		
-		
 			keyboard.up().onPressDo({ pepita.irA(pepita.position().up(1)) })
-		
-		
 			keyboard.down().onPressDo({ pepita.irA(pepita.position().down(1))})
-		
-		
-		keyboard.c().onPressDo({ pepita.come(game.uniqueCollider(pepita))})
+			
+			// Tecla para comer 
+			keyboard.c().onPressDo({ pepita.come(game.uniqueCollider(pepita))})
 
+			// Para testear cuanta energía tenemos
+			keyboard.enter().onPressDo{game.say(pepita, pepita.energia().toString())}
 		} 
 	
+	// Seteamos la colision de pepita para con lo que venga
 	method configurarColisiones() {
 		game.onCollideDo(pepita, { algo => algo.teEncontro(pepita) })
+	
 	}
 
 

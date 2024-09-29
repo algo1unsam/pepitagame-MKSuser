@@ -8,7 +8,7 @@ object nido {
 	method image() = "nido.png"
 
 	method teEncontro(ave) {
-		game.say(ave, "GANASTE! WIII")
+		game.say(ave, "GANE")
 		game.schedule(2000, { game.stop() })
 	}
 }
@@ -26,6 +26,10 @@ object silvestre {
 	method restriccion(){
 		return pepita.position().x().max(3)
 
+	}
+	method teEncontro(ave) {
+		game.say(ave, "PERDI ")
+		game.schedule(2000, { game.stop() })
 	}
 
 }
