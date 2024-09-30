@@ -23,7 +23,7 @@ object tutorial2 {
 		game.addVisual(silvestre)
 		game.addVisual(pepita)
 		config.configurarTeclas()
-		game.onTick(800, "gravedad", { pepita.gravedad() })
+		game.onTick(1200, "gravedad", { pepita.gravedad() })
 
 	}
 

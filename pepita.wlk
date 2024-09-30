@@ -4,7 +4,7 @@ import wollok.game.*
 object pepita {
 
 	var property energia = 100
-	var property position = game.at(1,1) //Con esto el pj arranca desde 0,0
+	var property position = game.at(0,0) //Con esto el pj arranca desde 0,0
 
 	// Cambiamos el condicional para que haya una imagen de gris tmb
 	method image() {
@@ -54,7 +54,9 @@ object pepita {
 	//Evaluamos dónde va a dejar a pepita la nueva posición del key. Si está fuera de los límites no se mueve.
 	//Se resta 1 para que no tome el valor máximo, sino quedaría fuera.
 	method irA(nuevaPosicion) {
+			
 			if ((nuevaPosicion.x().between(0,game.width()-1)) && (nuevaPosicion.y().between(0,game.height()-1))){
+				
 				if (self.energia() > 0) {
 					self.vola(position.distance(nuevaPosicion))
 					position = nuevaPosicion
@@ -73,7 +75,8 @@ object pepita {
 	// Configuramos la gravedad, haciendo que caiga 1 lugar por iteración del onTick
 	// Validamos que no baje mas alla del 0 para que no rompa
 	method gravedad(){
-    	if (position.y() > 0){
+    	
+		if (position.y() > 0){
 			const y = (position.y()-1)
 			position = game.at(position.x(),y)
 		}

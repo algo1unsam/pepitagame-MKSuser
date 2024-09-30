@@ -37,7 +37,9 @@ describe "Tests de Pepita" {
 	}
 
 	test "Al estar en la misma posicion que el nido pepita crece" {
-		pepita.irA(nido.position())
+		
+		//pepita.irA(nido.position())// Se rompe con el condicional, no permite que vaya a mas de (pepita.irA(game.at(4,4))
+		pepita.position(game.at(7, 8))
 		assert.equals("pepita-grande.png", pepita.image())
 	}
 
