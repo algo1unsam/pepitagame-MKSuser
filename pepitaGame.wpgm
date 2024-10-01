@@ -6,8 +6,10 @@ import wollok.game.*
 
 program PepitaGame {
 	game.title("Pepita")
+
 	game.height(10)
 	game.width(10)
+	
 	game.boardGround("fondo2.jpg")
 
 	// Saludos para testear .say
@@ -16,7 +18,7 @@ program PepitaGame {
 	tutorial3.iniciar()
 	
 	game.showAttributes(pepita) //Debug
-	
+
 	game.start()
 
 }

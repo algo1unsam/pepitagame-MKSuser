@@ -6,6 +6,9 @@ object pepita {
 	var property energia = 100
 	var property position = game.at(0,0) //Con esto el pj arranca desde 0,0
 
+	// ROmpe el resto del texto
+	//method text() = "¡Pepita!"
+
 	// Cambiamos el condicional para que haya una imagen de gris tmb
 	method image() {
 		return if (self.estaEnElNido()) {
