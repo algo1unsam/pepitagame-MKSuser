@@ -6,13 +6,19 @@ import wollok.game.*
 
 program PepitaGame {
 	game.title("Pepita")
+
 	game.height(10)
 	game.width(10)
+	
 	game.boardGround("fondo2.jpg")
 
-	tutorial1.iniciar()
+	// Saludos para testear .say
+	game.schedule(3000, { game.say(pepita, "¡Hola!") })
 
+	tutorial3.iniciar()
+	
 	game.showAttributes(pepita) //Debug
 
 	game.start()
+
 }

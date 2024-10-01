@@ -8,16 +8,28 @@ object nido {
 	method image() = "nido.png"
 
 	method teEncontro(ave) {
-		game.say(ave, "GANASTE! WIII")
+		game.say(ave, "GANE")
 		game.schedule(2000, { game.stop() })
 	}
 }
 
 
 object silvestre {
+	var property position = game.origin() //Con esto el pj arranca desde 0,0
 
 	method image() = "silvestre.png"
 
-	method position() = game.origin()
-	
+	//Generamos el cambio de mov en silvestre
+	method position() = game.at(self.restriccion(),0)
+
+	//Como nos pide que restrinjamos el mov, le ponemos que el minimo es 3.
+	method restriccion(){
+		return pepita.position().x().max(3)
+
+	}
+	method teEncontro(ave) {
+		game.say(ave, "PERDI ")
+		game.schedule(2000, { game.stop() })
+	}
+
 }
